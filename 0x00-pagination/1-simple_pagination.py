@@ -34,9 +34,9 @@ class Server:
         """"Returns a list that is paginated using index_range function"""
         assert (isinstance(page, int) and isinstance(page_size, int)), """\
             AssertionError raised when page and/or page_size are not ints"""
-        assert ((page != 0) and (page_size != 0)), """
+        assert ((page != 0) and (page_size != 0)), """\
         AssertionError raised with 0"""
-        assert ((page > 0) and (page_size > 0)), """
+        assert ((page > 0) and (page_size > 0)), """\
         AssertionError raised with negative values"""
 
         range = index_range(page, page_size)
