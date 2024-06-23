@@ -32,9 +32,8 @@ class Server:
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """"Returns a list that is paginated using index_range function"""
-        assert (isinstance(page, int) and isinstance(page_size, int))
-        assert ((page != 0) and (page_size != 0))
-        assert ((page > 0) and (page_size > 0))
+        assert isinstance(page, int) and page > 0
+        assert isinstance(page_size, int) and page > 0
 
         range = index_range(page, page_size)
         start, end = range[0], range[1]
