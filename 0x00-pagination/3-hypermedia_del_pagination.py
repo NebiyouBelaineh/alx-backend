@@ -39,19 +39,11 @@ class Server:
             }
         return self.__indexed_dataset
 
-    def get_hyper_index(
-                        self, index: int = None,
-                        page_size: int = 10) -> Dict[str, Any]:
+    def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict[str, Any]:
         """Returns a dictionary containing key-value pairs as a
         hypermedia pagination
-        - page_size: the length of the returned dataset page
-        - page: the current page number
-        - data: the dataset page (equivalent to return from previous task)
-        - next_index: the next index number, None if no next page
-        - prev_index: the previous index number, None if no previous page
         """
         assert (isinstance(index, int) and index >= 0)
-        assert (isinstance(page_size, int) and page_size > 0)
 
         indexed_data = self.indexed_dataset()
         data = []
