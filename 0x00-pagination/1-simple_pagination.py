@@ -32,7 +32,7 @@ class Server:
         assert isinstance(page_size, int) and page_size > 0
 
         self.dataset()
-        total_pages = math.ceil(len(self.dataset()) / page_size)
+        total_pages = math.ceil(len(self.__dataset) / page_size)
         if page > total_pages:
             return []
 
