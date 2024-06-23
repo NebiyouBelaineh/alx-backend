@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import csv
 import math
 from typing import List, Tuple
@@ -35,10 +34,9 @@ class Server:
         assert (isinstance(page, int) and isinstance(page_size, int))
         assert ((page != 0) and (page_size != 0))
         assert ((page > 0) and (page_size > 0))
-        self.dataset()
-        total_pages = ((len(self.__dataset) - 1 + page_size) // page_size)
-        if page <= total_pages:
-            start, end = index_range(page, page_size)
-            return self.__dataset[start:end]
-        else:
-            return []
+
+        range = index_range(page, page_size)
+        start, end = range[0], range[1]
+
+        dataset = self.dataset()
+        return dataset[start: end]
