@@ -8,6 +8,7 @@ from collections import OrderedDict, defaultdict
 class LFUCache(BaseCaching):
 
     def __init__(self):
+        """Initialize"""
         super().__init__()
         self.freq = defaultdict(int)  # Frequency counter
         self.order = OrderedDict()  # Order for tie-breaking
