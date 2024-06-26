@@ -15,11 +15,12 @@ class LRUCache(BaseCaching):
     def put(self, key, item):
         """ Add an item in the cache
         """
-        if key is not None or item is not None:
+        if key is not None and item is not None:
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 last = self.order.pop(0)
-                del self.cache_data[last]
-                print("DISCARD: {}".format(last))
+                if last != key:  # decides to replace instead of remove
+                    del self.cache_data[last]
+                    print("DISCARD: {}".format(last))
             self.cache_data[key] = item
             self.order.append(key)
         else:
