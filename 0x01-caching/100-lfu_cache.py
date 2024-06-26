@@ -6,7 +6,7 @@ from collections import OrderedDict, defaultdict
 
 
 class LFUCache(BaseCaching):
-
+    """LFU Cahching class"""
     def __init__(self):
         """Initialize"""
         super().__init__()
