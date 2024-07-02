@@ -21,12 +21,16 @@ app.config.from_object(Config)
 @app.route('/', strict_slashes=False)
 def index():
     """Basic flask app"""
-    return render_template('3-index.html')
+    return render_template('4-index.html')
 
 
 @babel.localeselector
 def get_locale():
     """Get locale from request header"""
+    locale = request.args.get('locale')
+    if locale in app.config['LANGUAGES']:
+        return locale
+
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
