@@ -163,3 +163,4 @@ cython_debug/
 notes.md
 flask_babel/
 node_modules
+package-lock.json
